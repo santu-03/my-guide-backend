@@ -1,0 +1,46 @@
+# ----------------------------
+# Node & dependencies
+# ----------------------------
+node_modules/
+.pnp/
+.pnp.js
+
+# ----------------------------
+# Tests & coverage
+# ----------------------------
+coverage/
+.nyc_output/
+coverage.lcov
+------------------------
+# Caches & temp
+# ----------------------------
+.cache/
+.tmp/
+temp/
+tmp/
+.eslintcache
+.stylelintcache
+.turbo/
+.rpt2_cache/
+.parcel-cache/
+
+# ----------------------------
+# Environment files
+# (keep only example templates)
+# ----------------------------
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# ----------------------------
+# Uploads & generated assets
+# (multer, temp, etc.)
+# ----------------------------
+uploads/
+public/uploads/
+storage/
+tmp/uploads/
+public/temp/
+
+
