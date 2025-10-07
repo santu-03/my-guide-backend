@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const activitySchema = new mongoose.Schema(
   {
     title: { type: String, required: true, trim: true, index: true, maxlength: 100 },
-    place: { type: mongoose.Schema.Types.ObjectId, ref: "PlaceId", required: true, index: true },
+    place: { type: mongoose.Schema.Types.ObjectId, ref: "Place", required: true, index: true },
 
     price: { type: Number, required: true, min: 0, max: 50000 },
     durationMinutes: { type: Number, default: 60, min: 15, max: 1440 },
