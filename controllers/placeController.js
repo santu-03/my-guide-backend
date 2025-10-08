@@ -1,7 +1,3 @@
-
-
-
-
 import createError from "http-errors";
 import { z } from "zod";
 import { Place } from "../models/Place.js";
