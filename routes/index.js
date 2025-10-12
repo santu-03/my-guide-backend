@@ -9,6 +9,7 @@ import mediaRoutes from "./media.js";
 import paymentRoutes from "./payments.js";
 import campaignRoutes from "./campaigns.js";
 import dashboardRoutes from "./dashboard.js";
+import wishlistRoutes from "./wishlist.js";
 
 const router = Router();
 
@@ -23,5 +24,6 @@ router.use("/media", mediaRoutes);
 router.use("/payments", paymentRoutes);
 router.use("/campaigns", campaignRoutes);
 router.use("/dashboard", dashboardRoutes);
+router.use("/wishlist", wishlistRoutes);
 
 export default router;
