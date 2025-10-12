@@ -14,12 +14,12 @@ const normalizeSignupRole = (role) => {
   return PUBLIC_ROLES.includes(r) ? r : "traveller";
 };
 
-const sign = (id) => {
+const sign = (id, role) => {
   const secret = getJwtSecret();
   if (!secret) {
     throw createError(500, "JWT secret missing. Set JWT_ACCESS_SECRET in .env");
   }
-  return jwt.sign({ id }, secret, {
+  return jwt.sign({ id, role }, secret, {
     expiresIn: process.env.JWT_EXPIRES_IN || "7d", // 7 days for single token
   });
 };
@@ -50,7 +50,7 @@ export const signup = async (req, res, next) => {
       role: normalizeSignupRole(body.role),
     });
 
-    const token = sign(user._id.toString());
+    const token = sign(user._id.toString(), user.role);
     res.status(201).json({
       message: "Signup successful",
       data: { 
@@ -78,7 +78,7 @@ export const login = async (req, res, next) => {
     const ok = await bcrypt.compare(body.password, user.password);
     if (!ok) return next(createError(401, "Invalid credentials"));
 
-    const token = sign(user._id.toString());
+    const token = sign(user._id.toString(), user.role);
     res.json({
       message: "Login successful",
       data: { 
