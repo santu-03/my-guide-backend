@@ -42,7 +42,6 @@ const activitySchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
 // Indexes
 activitySchema.index({ place: 1, isActive: 1, isPublished: 1 });
 activitySchema.index({ category: 1, featured: 1 });
@@ -55,7 +54,6 @@ activitySchema.index({
   description: "text",
   tags: "text",
 });
-
 activitySchema.set("toJSON", {
   transform: (_doc, ret) => {
     ret.id = ret._id;
