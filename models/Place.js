@@ -43,6 +43,7 @@ const placeSchema = new mongoose.Schema(
     tags: [{ type: String, index: true }],
     isActive: { type: Boolean, default: true, index: true },
   },
+  
   { timestamps: true }
 );
 
